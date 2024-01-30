@@ -49,3 +49,36 @@ const myFunction=function(){
 
 
 
+//+++++++++++++++++++++++++++++++++++++++
+//************************MEMORY ************ */
+//STACK(primitive) and HEAP(non-primitive)
+
+/*****stacks - you get copy of variable therefore value is not changed*/
+// let myYoutubename="chitradot.com"
+// let anothername=myYoutubename
+// //console.log(anothername); //chitradot.com
+// anothername="chaiaurcode";
+// console.log(myYoutubename); //chitradot.com
+// console.log(anothername); //chaiaurcode
+
+
+
+/****************heaps-non-primitive - since you got reference to original value therefor if you make changes then original value also gets change******** */
+let userOne={
+    email:"user@google.com",
+    upi:"user@ybl"
+}
+
+let userTwo=userOne;
+
+userTwo.email="chitra@google.com";
+
+console.log(userOne.email); //chitra@google.com
+console.log(userTwo.email); //chitra@google.com
+
+
+
+
+
+
+
