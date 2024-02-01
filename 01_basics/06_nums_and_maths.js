@@ -33,3 +33,35 @@ console.log(hundred1.toLocaleString('en-IN')) //10,00,000
 // NUMBER.MAX_SAFE_INTERGER
 
 
+
+/*********************************MATHS************* */
+// console.log(Math)
+
+// console.log(Math.abs(-4)) //4    only -ve to positive hota h
+
+// console.log(Math.round(5.3)); //5
+// console.log(Math.round(5.6)); //6
+// console.log(Math.round(5.5)); //6
+
+// console.log(Math.ceil(6.3)); //7 
+// console.log(Math.ceil(6.5)); //7
+// console.log(Math.ceil(6.6)); //7
+
+// console.log(Math.floor(6.3)); //6
+// console.log(Math.floor(6.5)); //6
+// console.log(Math.floor(6.6));//6
+
+// console.log(Math.max(4,5,8,2));  //8
+ // console.log(Math.min(4,5,8,2)); //2
+
+// console.log(Math.random())  //0.0 to 0.9
+// console.log(Math.random()*6)  //0.0 to 5.9
+// console.log((Math.random()*6)+1)  // 1.0 to 6.9
+// console.log(Math.floor(Math.random()*6)+1)  //1 to 6
+
+
+const min=10
+const max=20
+console.log(Math.random()*(max-min+1)) //0.0 to 10.9
+console.log(Math.random()*(max-min+1)+min) //10.0 to 20.9
+console.log(Math.floor(Math.random()*(max-min+1)+min)) //10 to 20 
