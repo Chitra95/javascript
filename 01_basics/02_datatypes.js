@@ -1,7 +1,7 @@
-"use strict";
+"use strict"; //for newer version of js
 
-// alert(3+3);  //we are in node.js not in browser
-
+// alert(3+3);  //we are in node.js not in browser ,alert cant be use in node,it has diff syntax in node for alert
+//for documentaion tc39 and mdn use karo
 console.log(3+3);
 console.log("chitra");
 
