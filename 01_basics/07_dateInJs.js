@@ -50,3 +50,5 @@ console.log(newDate.getMonth()+1);  //2 i.e feb so that user is not confused
 newDate.toLocaleString('default',{
     weekday:"long"
 })
+
+
