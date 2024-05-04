@@ -1,5 +1,6 @@
 //Generating Random Number
 let randomNumber = parseInt(Math.random() * 100 + 1);
+console.log(randomNumber);
 
 //Taking values from html into document
 const submit = document.querySelector('#subt'); //eventlistener lagana h
@@ -16,10 +17,10 @@ const p = document.createElement('p');
 let prevGuess = []; //to store user guesses and show them
 let numGuess = 1; //total guess 10 tk h uske baad disable krte h submit button ko
 
-let playgame = true; //this variable is alwys +nt while designing game  ki kab user ko allow karenge to play and kab nhi
+let playGame = true; //this variable is alwys +nt while designing game  ki kab user ko allow karenge to play and kab nhi
 
 //First lets check are we available to play game or not    playgame=true
-if (playgame) {
+if (playGame) {
   submit.addEventListener('click', function (e) {
     e.preventDefault(); //stoppinfg to send values to server
     const guess = parseInt(userInput.value); //userInput ka value le liya aur parseInt kiya for datatype
@@ -63,6 +64,7 @@ function validateGuess(guess) {
 function checkGuess(guess) {
   if (guess === randomNumber) {
     displayMessage(`You guessed it Right!`);
+    endGame(); /***********i added this***********/
   } else if (guess < randomNumber) {
     displayMessage(`Number is TOOO low`);
   } else if (guess > randomNumber) {
@@ -87,7 +89,7 @@ function displayGuess(guess) {
 //this fn will interact directly with dom
 //lowOrHi vala variable ko use karnege  //.lowOrHi is class of paragraph in div class="resultParas"
 function displayMessage(message) {
-  lowOrHi.innerHtml = `<h2>${message} </h2>`;
+  lowOrHi.innerHTML = `<h2>${message} </h2>`;
 }
 
 function endGame() {
@@ -99,7 +101,7 @@ function endGame() {
   p.classList.add('button');
   p.innerHTML = `<h2 id="newGame"> Start New Game</h2>`;
   startOver.appendChild(p);
-  playgame = false;
+  playGame = false;
   newGame();
 }
 
@@ -118,6 +120,6 @@ function newGame() {
     userInput.removeAttribute('disabled');
     startOver.removeChild(p);
 
-    playgame = true;
+    playGame = true;
   });
 }
