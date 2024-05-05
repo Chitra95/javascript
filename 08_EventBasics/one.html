@@ -3,15 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>htnml Events </title>
 </head>
-<body>
-    <ul id="images">
-        <li > <img src=""  id="dog"     alt=""></li>
-        <li> <img src=""   id="cat"     alt=""></li>
-        <li > <img src=""  id="owl"  alt=""></li>
-        <li > <img src=""  id="pink"alt=""></li>
-        <li > <img src="" id="red" alt=""></li>
-    </ul>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl"  src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
 </body>
+<script>
+
+    //Events 3 ways
+    //1.    onclick="alert('owl clicked')"   inside tag
+    //2.
+    // document.getElementById("owl").onclick=function(){
+    //     alert("Owl is clicked")
+    // }
+
+        //Other imp concepts
+     // attachEvent()  used in Internet Explorer
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+
+    //3. Event propagation   a)Event bubbling b)Event Capturing
+    //a)Event bubbling 
+    // document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul");
+    // },false)
+
+    // document.getElementById("owl").addEventListener("click",function(e){
+    //     console.log("owl clicked");
+    // },false)
+
+    //EVENT BUBBLING   INSIDE TO OUTSIDE   li se ul
+    //owl clicked
+    //clicked inside ul
+
+
+
+    //b)Event Capturing
+    // document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul");
+    // },true)
+
+    // document.getElementById("owl").addEventListener("click",function(e){
+    //     console.log("owl clicked");
+    // },true)
+
+    //Event capturing  outside se inside   ul se li
+    //clicked inside ul
+    //owl clicked
+
+
+
+    //Event bubbling krna h and propagation stop krna h 
+    //  document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul");
+    // },false)
+
+    // document.getElementById("owl").addEventListener("click",function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()                                                                          /****imp**/
+    // },false)
+
+    //owl clicked                                  ul pe gaya hi nhi     li pe ruk gya
+
+
+
+    //Lets try clicking on LINK
+    // document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul");
+    // },false)
+
+    // document.getElementById("google").addEventListener("click",function(e){
+    //     e.preventDefault()  //navigate nhi hoga
+    //    e.stopPropagation()      //event bubbling nhi hoga                              /****imp**/
+    //     console.log("GOOGLE clicked");
+    //    /****imp**/
+    // },false)
+
+    //output
+    //GOOGLE clicked
+
+//PROJECT__________________________________________
+//If i click on image li must be vanished
+document.querySelector("#images").addEventListener("click",function(e){
+    // console.log(e);
+    // console.log(e.target);  //<img> 
+    console.log(e.target.parentNode);   //<li>...</li>  of images
+    
+    let removeIt=e.target.parentNode  //<li>...</li>  of images
+    // removeIt.remove()            
+
+
+    //other way for remove
+    // removeIt.parentNode.removeChild(removeIt)
+            
+
+    //But if i click outside image              "li" ka parent node "ul"  tho pura ul remove hua
+})
+
+
+
+
+
+
+    
+
+
+
+    
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target.tagName);
+    //     if (e.target.tagName === 'IMG') {
+    //         console.log(e.target.id);
+    //         let removeIt = e.target.parentNode
+    //         removeIt.remove()
+    //     }
+    
+        
+    // })
+    
+    //removeIt.parentNode.removeChild(removeIt)
+</script>
 </html>
