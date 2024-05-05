@@ -100,43 +100,45 @@
 
 //PROJECT__________________________________________
 //If i click on image li must be vanished
-document.querySelector("#images").addEventListener("click",function(e){
-    // console.log(e);
-    // console.log(e.target);  //<img> 
-    console.log(e.target.parentNode);   //<li>...</li>  of images
+// document.querySelector("#images").addEventListener("click",function(e){
+//     // console.log(e);
+//     // console.log(e.target);  //<img> 
+//     console.log(e.target.parentNode);   //<li>...</li>  of images
     
-    let removeIt=e.target.parentNode  //<li>...</li>  of images
-    // removeIt.remove()            
+//     let removeIt=e.target.parentNode  //<li>...</li>  of images
+//     // removeIt.remove()            
 
 
-    //other way for remove
-    // removeIt.parentNode.removeChild(removeIt)
+//     //other way for remove
+//     // removeIt.parentNode.removeChild(removeIt)
             
 
-    //But if i click outside image              "li" ka parent node "ul"  tho pura ul remove hua
+//     //But if i click outside image              "li" ka parent node "ul"  tho pura ul remove hua
+// })
+
+
+
+
+
+//USING STRICT CHECKING
+document.querySelector("#images").addEventListener("click",function(e){
+    console.log(e.target.tagName)
+    if(e.target.tagName==='IMG'){
+        console.log(e.target.id);
+        let removeIt=e.target.parentNode
+        removeIt.remove()
+    }
+    
 })
 
 
 
 
-
-
     
 
 
 
     
-    // document.querySelector('#images').addEventListener('click', function(e){
-    //     console.log(e.target.tagName);
-    //     if (e.target.tagName === 'IMG') {
-    //         console.log(e.target.id);
-    //         let removeIt = e.target.parentNode
-    //         removeIt.remove()
-    //     }
-    
-        
-    // })
-    
-    //removeIt.parentNode.removeChild(removeIt)
+  
 </script>
 </html>
