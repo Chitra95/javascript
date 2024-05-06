@@ -10,4 +10,64 @@
     <button id="stop">STOP</button>
     
 </body>
+<script>
+    //***************Directly passing fn into setTimeout(handler,ms) - prints "once" aftr timer
+    // setTimeout(function(){
+    //     console.log("Chitra");
+    // },2000)
+
+
+    //***********creating fn and giving referernce into setTimeout()
+    // const sayChitra=function(){
+    //     console.log("Chitra");
+    // }
+    // setTimeout(sayChitra,2000)
+
+
+
+
+
+
+
+    //*****************Changing h1 "Chai aur js" to "best js series"
+   
+    //dont write line 35 36  bcz vo directly execute ho rha h isiliye function mai dal ,call karne ke baad hi xecute hoga
+    // const changingText=document.querySelector('h1').innerHTML= "best js series"
+    // // setTimeout(changingText,5000)
+
+    //WRite this
+    // const changingText=function(){
+    //     document.querySelector('h1').innerHTML= "best js series"
+    // }
+
+    // // //If i want to stop this setTimeout() 
+    // const changeMe=setTimeout(changingText,2000)
+    // clearTimeout(changeMe)    //it will never change its text
+
+
+
+
+
+
+
+
+
+//***************To stop this gto happen immediately i want to stop aftr i click on "stop"
+    const changingText=function(){
+        document.querySelector('h1').innerHTML= "best js series"
+    }
+    
+   
+
+    const changeMe=setTimeout(changingText,5000)
+
+
+document.querySelector("#stop").addEventListener("click",function(){
+    clearTimeout(changeMe)
+    console.log("STOPPED");
+})
+
+
+
+</script>
 </html>
