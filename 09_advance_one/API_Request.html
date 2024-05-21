@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+#card{
+ height: 300px;
+ width: 200px;
+ background-color: #fff;
+ position: relative;
+ /* display:flex;
+ align-items: center;
+ justify-content: center; */
+}
+
+#pic{
+    height: 200px;
+    width:150px;
+    background-color: red;
+    position:absolute;
+  
+}
+
+#pic>img{
+    height:200px;
+    width:150px;
+}
+
+#followers{
+    height: 20px;
+    width: 10px;
+    background-color: blue;
+    
+}
+
+
+</style>
+
+</head>
+<body style="background-color: #212121; color: beige;">
+    Value	State	Description <br>
+0	UNSENT	Client has been created. open() not called yet. <br>
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available. <br>
+3	LOADING	Downloading; responseText holds partial data. <br>
+4	DONE	The operation is complete.
+
+<button></button>
+
+<div id="card">
+    <div id="pic">
+        <img src="https://avatars.githubusercontent.com/u/11613311?v=4" alt="">
+
+    </div>
+    <div id="followers">
+
+    </div>
+</div>
+    
+</body>
+<script>
+
+const requestUrl='https://api.github.com/users/hiteshChoudhary'
+const xhr=new XMLHttpRequest()
+xhr.open("GET",requestUrl)
+
+// console.log("HERE");
+// xhr.send()
+
+
+// console.log(xhr.readyState); //1
+// xhr.send()
+
+//continously track state
+// xhr.onreadystatechange=function(){
+//     console.log(xhr.readyState);      // 2 3 4
+// }
+// xhr.send()
+
+//when state is 4  do this
+xhr.onreadystatechange=function(){
+    console.log(xhr.readyState); 
+    if(xhr.readyState===4){
+        const  data=JSON.parse(this.responseText)
+        console.log(data);
+        console.log(typeof data);
+        console.log(data.followers);
+    }
+}
+
+xhr.send()
+
+//OUTPUT
+/*
+2
+3
+4
+{.......data........}
+object
+22117
+*/
+
+
+</script>
+</html>
