@@ -149,3 +149,80 @@ async function consumePromiseFive(){
  if error true ----use try catch
  There is e ERROR:SOMETHING WENT WRONG
  */
+
+
+
+ //________________________________LEARNING FETCH()___________________________
+//  async function getAllUsers(){
+//     const response=await fetch("https://jsonplaceholder.typicode.com/users")
+//     const data=response.json()
+//     console.log(data);
+//  }
+//  getAllUsers()
+
+//  /*
+//  output
+//  Promise { <pending> }   //bcz time lagta h fetch hone mai
+//   */
+
+
+
+//-------------Using try n catch
+async function getAllUsers(){
+try {
+    const response=await fetch("https://jsonplaceholder.typicode.com/users")
+    // console.log(response);
+    const data=await response.json()
+    console.log(data);
+} catch (error) {
+    console.log("E:",error);
+}
+ }
+ getAllUsers()
+
+ /*
+ output
+response bhi aya
+data bhi aya
+  */
+
+
+//------------------------USING .then().catch()
+fetch("https://jsonplaceholder.typicode.com/users")
+.then((response)=>{
+    return response.json()
+})
+.then( (data)=>{
+    console.log(data);
+})
+.catch( (error)=>console.log(error))
+
+/*
+  {
+    id: 10,
+    name: 'Clementina DuBuque',
+    username: 'Moriah.Stanton',
+    email: 'Rey.Padberg@karina.biz',
+    address: {
+      street: 'Kattie Turnpike',
+      suite: 'Suite 198',
+      city: 'Lebsackbury',
+      zipcode: '31428-2261',
+      geo: [Object]
+    },
+    phone: '024-648-3804',
+    website: 'ambrose.net',
+    company: {
+      name: 'Hoeger LLC',
+      catchPhrase: 'Centralized empowering task-force',
+      bs: 'target end-to-end models'
+    }
+  }
+]
+
+{ username: 'Sai', password: '123' }
+ * /
+
+
+
+//Fetch priority queue mai jata h isiliye pehle execute hota h
