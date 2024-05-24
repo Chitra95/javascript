@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical scoping and closure</title>
+</head>
+<body>
+    <button id="orange"> Orange </button>
+    <button id="green"> Green </button>
+    
+</body>
+<script>
+
+    /*******************************LEXICAL SCOPING/
+// function init(){
+//     let name="Mozilla";
+
+//     function displayName(){
+//         console.log(name);
+//     }
+//     displayName()
+// }
+// init()
+
+/*
+Mozilla
+*/
+
+
+
+// function outer(){
+//     let username="chitra";
+//     // console.log("OUTER:",secret);    //cant access
+
+//     function inner(){
+//         let secret="my123";
+//         console.log("inner:",username);
+//     }
+
+//     function innerTwo(){
+//         // console.log(secret);     //cant access
+//         console.log("innerTwo:",username);
+//     }
+//     inner()
+//     innerTwo()
+// }
+// outer()
+// console.log("TOO outer:",username);    //cant access
+
+
+
+/**************CLOSURE ***************/
+// function makeFunc(){
+// const name="mozilla";
+
+// function displayName(){
+//     console.log(name);
+// }
+// return displayName;
+// }
+
+// const myfunc=makeFunc();
+// myfunc()
+
+
+/****Practical implementation***/
+// document.getElementById("orange").onclick=function(){
+//     document.body.style.backgroundColor="orange"
+// }
+
+// document.getElementById("green").onclick=function(){
+//     document.body.style.backgroundColor="green"
+// }
+
+function clickHandler(color){
+    // document.body.style.backgroundColor=`${color}`
+    return function(){
+        document.body.style.backgroundColor=`${color}`
+    }
+}
+document.getElementById("orange").onclick=clickHandler("orange")
+document.getElementById("green").onclick=clickHandler("green")
+</script>
+</html>
